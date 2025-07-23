@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Exclude this folder
+yolov8-tfjs-master/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
