@@ -2,7 +2,7 @@
   <div v-if="show" class="loader-overlay">
     <div class="loader-content">
       <div class="spinner-container">
-        <BSpinner variant="light" label="Chargement..." class="loader-spinner" />
+        <BSpinner variant="light" label="Loading..." class="loader-spinner" />
       </div>
       <h4 class="text-white mt-3">{{ title }}</h4>
       <BProgressBar
@@ -27,7 +27,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  title: 'Chargement du modèle...'
+  title: 'Loading model...'
 });
 </script>
 

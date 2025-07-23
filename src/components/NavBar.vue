@@ -6,8 +6,8 @@
       </BNavbarBrand>
       
       <BNavbarNav class="ms-auto">
-        <BNavItem to="/" exact>Accueil</BNavItem>
-        <BNavItem to="/about">À propos</BNavItem>
+        <BNavItem to="/" exact>Home</BNavItem>
+        <BNavItem to="/about">About</BNavItem>
       </BNavbarNav>
     </BContainer>
   </BNavbar>

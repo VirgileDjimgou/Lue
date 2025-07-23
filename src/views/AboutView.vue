@@ -4,7 +4,7 @@
       <BCol cols="12" lg="8" class="mx-auto">
         <BCard class="about-card">
           <BCardHeader>
-            <h2 class="mb-0">📚 À Propos</h2>
+            <h2 class="mb-0">📚 About</h2>
           </BCardHeader>
           <BCardBody>
             <div class="text-center mb-4">
@@ -15,7 +15,7 @@
               />
               <h3 class="mt-3">YOLOv8 Vue.js Detection App</h3>
               <p class="lead text-muted">
-                Application moderne de détection d'objets en temps réel
+                Modern real-time object detection application
               </p>
             </div>
 
@@ -23,19 +23,19 @@
 
             <BRow class="mb-4">
               <BCol cols="12" md="6">
-                <h4>🛠️ Technologies Utilisées</h4>
+                <h4>🛠️ Technologies Used</h4>
                 <BListGroup>
                   <BListGroupItem>
-                    <strong>Vue 3</strong> - Framework progressif JavaScript
+                    <strong>Vue 3</strong> - Progressive JavaScript framework
                   </BListGroupItem>
                   <BListGroupItem>
-                    <strong>TypeScript</strong> - Typage statique
+                    <strong>TypeScript</strong> - Static typing
                   </BListGroupItem>
                   <BListGroupItem>
-                    <strong>Vite</strong> - Build tool moderne
+                    <strong>Vite</strong> - Modern build tool
                   </BListGroupItem>
                   <BListGroupItem>
-                    <strong>Pinia</strong> - Gestion d'état
+                    <strong>Pinia</strong> - State management
                   </BListGroupItem>
                   <BListGroupItem>
                     <strong>Bootstrap Vue Next</strong> - UI Components
@@ -46,31 +46,31 @@
                 </BListGroup>
               </BCol>
               <BCol cols="12" md="6">
-                <h4>🎯 Fonctionnalités</h4>
+                <h4>🎯 Features</h4>
                 <BListGroup>
                   <BListGroupItem>
                     <i class="fas fa-image text-primary me-2"></i>
-                    Détection sur images
+                    Image detection
                   </BListGroupItem>
                   <BListGroupItem>
                     <i class="fas fa-video text-success me-2"></i>
-                    Détection sur vidéos
+                    Video detection
                   </BListGroupItem>
                   <BListGroupItem>
                     <i class="fas fa-camera text-warning me-2"></i>
-                    Détection webcam temps réel
+                    Real-time webcam detection
                   </BListGroupItem>
                   <BListGroupItem>
                     <i class="fas fa-brain text-info me-2"></i>
-                    Modèle YOLOv8 optimisé
+                    Optimized YOLOv8 model
                   </BListGroupItem>
                   <BListGroupItem>
                     <i class="fas fa-mobile text-secondary me-2"></i>
-                    Interface responsive
+                    Responsive interface
                   </BListGroupItem>
                   <BListGroupItem>
                     <i class="fas fa-shield-alt text-danger me-2"></i>
-                    Type safety complète
+                    Complete type safety
                   </BListGroupItem>
                 </BListGroup>
               </BCol>
@@ -79,11 +79,11 @@
             <hr />
 
             <div class="mb-4">
-              <h4>📊 Modèle YOLOv8</h4>
+              <h4>📊 YOLOv8 Model</h4>
               <p>
-                Cette application utilise le modèle YOLOv8 (You Only Look Once version 8) 
-                pour la détection d'objets en temps réel. Le modèle peut détecter 
-                <strong>80 classes d'objets</strong> différents du dataset COCO.
+                This application uses the YOLOv8 model (You Only Look Once version 8) 
+                for real-time object detection. The model can detect 
+                <strong>80 different object classes</strong> from the COCO dataset.
               </p>
               
               <BRow class="mt-3">
@@ -99,7 +99,7 @@
                   <BCard class="stat-card text-center">
                     <BCardBody>
                       <h5>~13MB</h5>
-                      <small>Taille</small>
+                      <small>Size</small>
                     </BCardBody>
                   </BCard>
                 </BCol>
@@ -125,7 +125,7 @@
             <hr />
 
             <div class="text-center">
-              <h4>🔗 Liens Utiles</h4>
+              <h4>🔗 Useful Links</h4>
               <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
                 <BButton 
                   variant="outline-primary" 

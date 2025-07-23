@@ -13,7 +13,7 @@ export const useErrorHandler = () => {
   const isHandlingError = ref(false);
 
   const handleError = (error: Error | string, details?: string, action?: string) => {
-    if (isHandlingError.value) return; // Éviter les boucles d'erreurs
+    if (isHandlingError.value) return; // Avoid error loops
     
     isHandlingError.value = true;
     
@@ -25,10 +25,10 @@ export const useErrorHandler = () => {
       action
     };
 
-    console.error('Erreur capturée:', errorInfo);
+    console.error('Error captured:', errorInfo);
     store.setError(errorMessage);
     
-    // Reset après un délai
+    // Reset after a delay
     setTimeout(() => {
       isHandlingError.value = false;
     }, 1000);
@@ -36,7 +36,7 @@ export const useErrorHandler = () => {
 
   const handleAsyncError = async <T>(
     asyncFn: () => Promise<T>,
-    errorMessage = 'Une erreur est survenue'
+    errorMessage = 'An error occurred'
   ): Promise<T | null> => {
     try {
       return await asyncFn();

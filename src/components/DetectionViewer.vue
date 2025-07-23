@@ -1,9 +1,9 @@
 <template>
   <BCard class="detection-viewer-card">
     <BCardHeader>
-      <h5 class="mb-0">🔍 Zone de Détection</h5>
+      <h5 class="mb-0">🔍 Detection Zone</h5>
       <small v-if="stream.type" class="text-muted">
-        Source active: {{ getSourceLabel(stream.type) }}
+        Active source: {{ getSourceLabel(stream.type) }}
       </small>
     </BCardHeader>
     <BCardBody>
@@ -14,7 +14,7 @@
           class="media-element"
           :class="{ active: stream.type === 'image' }"
           @load="onImageLoad"
-          alt="Image à analyser"
+          alt="Image to analyze"
         />
 
         <!-- Video Display -->
@@ -54,9 +54,9 @@
         >
           <div class="text-center">
             <i class="fas fa-camera fa-3x text-muted mb-3"></i>
-            <h5 class="text-muted">Sélectionnez une source pour commencer</h5>
+            <h5 class="text-muted">Select a source to begin</h5>
             <p class="text-muted">
-              Choisissez une image, vidéo ou activez la webcam pour détecter des objets
+              Choose an image, video or enable webcam to detect objects
             </p>
           </div>
         </div>
@@ -99,9 +99,9 @@ const canvasSize = computed(() => {
 const getSourceLabel = (type: StreamState['type']): string => {
   switch (type) {
     case 'image': return 'Image';
-    case 'video': return 'Vidéo';
+    case 'video': return 'Video';
     case 'camera': return 'Webcam';
-    default: return 'Aucune';
+    default: return 'None';
   }
 };
 
@@ -110,8 +110,8 @@ const onImageLoad = async () => {
     try {
       await modelService.detect(imageRef.value, model.value, canvasRef.value);
     } catch (error) {
-      console.error('Erreur lors de la détection sur image:', error);
-      store.setError(`Erreur de détection: ${error}`);
+      console.error('Error during image detection:', error);
+      store.setError(`Detection error: ${error}`);
     }
   }
 };
@@ -121,8 +121,8 @@ const onVideoPlay = async () => {
     try {
       await modelService.detectVideo(videoRef.value, model.value, canvasRef.value);
     } catch (error) {
-      console.error('Erreur lors de la détection sur vidéo:', error);
-      store.setError(`Erreur de détection: ${error}`);
+      console.error('Error during video detection:', error);
+      store.setError(`Detection error: ${error}`);
     }
   }
 };
@@ -136,8 +136,8 @@ const onCameraPlay = async () => {
     try {
       await modelService.detectVideo(cameraRef.value, model.value, canvasRef.value);
     } catch (error) {
-      console.error('Erreur lors de la détection sur webcam:', error);
-      store.setError(`Erreur de détection: ${error}`);
+      console.error('Error during webcam detection:', error);
+      store.setError(`Detection error: ${error}`);
     }
   }
 };
@@ -173,8 +173,8 @@ const handleWebcam = async (enabled: boolean) => {
       store.resetStream();
     }
   } catch (error) {
-    console.error('Erreur webcam:', error);
-    store.setError(`Erreur webcam: ${error}`);
+    console.error('Webcam error:', error);
+    store.setError(`Webcam error: ${error}`);
   }
 };
 

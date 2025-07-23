@@ -1,7 +1,7 @@
 <template>
   <BCard class="media-controls-card">
     <BCardHeader>
-      <h5 class="mb-0">📥 Sources de Détection</h5>
+      <h5 class="mb-0">📥 Detection Sources</h5>
     </BCardHeader>
     <BCardBody>
       <div class="d-flex flex-wrap gap-2">
@@ -20,7 +20,7 @@
             :disabled="!isModelReady"
           >
             <i :class="stream.type === 'image' ? 'fas fa-times' : 'fas fa-image'"></i>
-            {{ stream.type === 'image' ? 'Fermer' : 'Ouvrir' }} Image
+            {{ stream.type === 'image' ? 'Close' : 'Open' }} Image
           </BButton>
         </div>
 
@@ -39,7 +39,7 @@
             :disabled="!isModelReady"
           >
             <i :class="stream.type === 'video' ? 'fas fa-times' : 'fas fa-video'"></i>
-            {{ stream.type === 'video' ? 'Fermer' : 'Ouvrir' }} Vidéo
+            {{ stream.type === 'video' ? 'Close' : 'Open' }} Video
           </BButton>
         </div>
 
@@ -51,7 +51,7 @@
             :disabled="!isModelReady || !isWebcamSupported"
           >
             <i :class="stream.type === 'camera' ? 'fas fa-times' : 'fas fa-camera'"></i>
-            {{ stream.type === 'camera' ? 'Fermer' : 'Ouvrir' }} Webcam
+            {{ stream.type === 'camera' ? 'Close' : 'Open' }} Webcam
           </BButton>
         </div>
       </div>
@@ -59,7 +59,7 @@
       <div v-if="!isWebcamSupported" class="mt-2">
         <small class="text-warning">
           <i class="fas fa-exclamation-triangle"></i>
-          Webcam non supportée par ce navigateur
+          Webcam not supported by this browser
         </small>
       </div>
     </BCardBody>

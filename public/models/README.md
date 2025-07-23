@@ -1,8 +1,8 @@
-# Modèles YOLOv8
+# YOLOv8 Models
 
-Placez vos modèles YOLOv8 convertis au format TensorFlow.js dans ce dossier.
+Place your YOLOv8 models converted to TensorFlow.js format in this folder.
 
-## Structure attendue :
+## Expected structure:
 ```
 models/
 ├── yolov8n_web_model/
@@ -14,28 +14,28 @@ models/
 │   └── metadata.yaml
 ```
 
-## Comment obtenir un modèle :
+## How to get a model:
 
-1. **Télécharger un modèle pré-converti :**
-   - Copiez le dossier `yolov8n_web_model` depuis le projet original
-   - Placez-le dans ce dossier `public/models/`
+1. **Download a pre-converted model:**
+   - Copy the `yolov8n_web_model` folder from the original project
+   - Place it in this `public/models/` folder
 
-2. **Convertir votre propre modèle :**
+2. **Convert your own model:**
    ```python
    from ultralytics import YOLO
    
-   # Charger un modèle
+   # Load a model
    model = YOLO("yolov8n.pt")
    
-   # Exporter vers TensorFlow.js
+   # Export to TensorFlow.js
    model.export(format="tfjs")
    ```
 
-## Modèles disponibles :
-- **yolov8n** : Nano (le plus rapide, ~6MB)
-- **yolov8s** : Small (~22MB)  
-- **yolov8m** : Medium (~52MB)
-- **yolov8l** : Large (~87MB)
-- **yolov8x** : Extra Large (~136MB)
+## Available models:
+- **yolov8n**: Nano (fastest, ~6MB)
+- **yolov8s**: Small (~22MB)  
+- **yolov8m**: Medium (~52MB)
+- **yolov8l**: Large (~87MB)
+- **yolov8x**: Extra Large (~136MB)
 
-Plus le modèle est grand, plus il est précis mais plus lent.
+The larger the model, the more accurate but slower it is.

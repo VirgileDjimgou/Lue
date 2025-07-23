@@ -1,32 +1,32 @@
 #!/bin/bash
 
-echo "🚀 Démarrage de l'application YOLOv8 Vue.js..."
+echo "🚀 Starting YOLOv8 Vue.js application..."
 
-# Vérification des dépendances
-echo "📦 Vérification des dépendances..."
+# Check dependencies
+echo "📦 Checking dependencies..."
 if [ ! -d "node_modules" ]; then
-    echo "Installation des dépendances..."
+    echo "Installing dependencies..."
     npm install
 fi
 
-# Vérification du modèle
-echo "🧠 Vérification du modèle..."
+# Check model
+echo "🧠 Checking model..."
 if [ ! -d "public/models/yolov8n_web_model" ]; then
-    echo "⚠️  ATTENTION: Modèle YOLOv8 manquant!"
-    echo "📁 Veuillez placer le dossier 'yolov8n_web_model' dans 'public/models/'"
-    echo "📚 Consultez public/models/README.md pour plus d'informations"
+    echo "⚠️  WARNING: YOLOv8 model missing!"
+    echo "📁 Please place the 'yolov8n_web_model' folder in 'public/models/'"
+    echo "📚 Check public/models/README.md for more information"
     echo ""
 fi
 
 # Type checking
-echo "🔍 Vérification des types TypeScript..."
+echo "🔍 Checking TypeScript types..."
 npx vue-tsc --noEmit
 
 if [ $? -eq 0 ]; then
-    echo "✅ Types OK, démarrage du serveur..."
+    echo "✅ Types OK, starting server..."
     npm run dev
 else
-    echo "❌ Erreurs TypeScript détectées"
-    echo "🔧 Tentative de démarrage malgré les erreurs..."
+    echo "❌ TypeScript errors detected"
+    echo "🔧 Attempting to start despite errors..."
     npm run dev
 fi

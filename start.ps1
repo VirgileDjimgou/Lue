@@ -1,21 +1,21 @@
-Write-Host "🚀 Démarrage de l'application YOLOv8 Vue.js..." -ForegroundColor Green
+Write-Host "🚀 Starting YOLOv8 Vue.js application..." -ForegroundColor Green
 
-# Vérification des dépendances
-Write-Host "📦 Vérification des dépendances..." -ForegroundColor Blue
+# Check dependencies
+Write-Host "📦 Checking dependencies..." -ForegroundColor Blue
 if (-not (Test-Path "node_modules")) {
-    Write-Host "Installation des dépendances..." -ForegroundColor Yellow
+    Write-Host "Installing dependencies..." -ForegroundColor Yellow
     npm install
 }
 
-# Vérification du modèle
-Write-Host "🧠 Vérification du modèle..." -ForegroundColor Blue
+# Check model
+Write-Host "🧠 Checking model..." -ForegroundColor Blue
 if (-not (Test-Path "public/models/yolov8n_web_model")) {
-    Write-Host "⚠️  ATTENTION: Modèle YOLOv8 manquant!" -ForegroundColor Red
-    Write-Host "📁 Veuillez placer le dossier 'yolov8n_web_model' dans 'public/models/'" -ForegroundColor Yellow
-    Write-Host "📚 Consultez public/models/README.md pour plus d'informations" -ForegroundColor Yellow
+    Write-Host "⚠️  WARNING: YOLOv8 model missing!" -ForegroundColor Red
+    Write-Host "📁 Please place the 'yolov8n_web_model' folder in 'public/models/'" -ForegroundColor Yellow
+    Write-Host "📚 Check public/models/README.md for more information" -ForegroundColor Yellow
     Write-Host ""
 }
 
-# Démarrage
-Write-Host "🌐 Démarrage du serveur de développement..." -ForegroundColor Green
+# Start server
+Write-Host "🌐 Starting development server..." -ForegroundColor Green
 npm run dev

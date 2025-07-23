@@ -4,7 +4,7 @@
     <LoadingOverlay
       :show="model.isLoading"
       :progress="loadingProgress"
-      title="Chargement du modèle YOLOv8..."
+      title="Loading YOLOv8 model..."
     />
 
     <!-- Header -->
@@ -13,19 +13,19 @@
         <BCol cols="12">
           <div class="text-center mb-4">
             <h1 class="display-4 text-white fw-bold mb-3">
-              🚀 Détection d'Objets YOLOv8
+              🚀 YOLOv8 Object Detection
             </h1>
             <p class="lead text-white-75 mb-4">
-              Application de détection d'objets en temps réel dans le navigateur avec
-              <strong>Vue 3</strong>, <strong>TypeScript</strong> et <strong>TensorFlow.js</strong>
+              Real-time object detection application in the browser with
+              <strong>Vue 3</strong>, <strong>TypeScript</strong> and <strong>TensorFlow.js</strong>
             </p>
             <BBadge variant="info" class="me-2">
-              Modèle: {{ config.modelName }}
+              Model: {{ config.modelName }}
             </BBadge>
             <BBadge 
               :variant="isModelReady ? 'success' : 'warning'"
             >
-              {{ isModelReady ? 'Prêt' : 'Chargement...' }}
+              {{ isModelReady ? 'Ready' : 'Loading...' }}
             </BBadge>
           </div>
         </BCol>
@@ -70,19 +70,19 @@
                 <BCol cols="6" md="3">
                   <div class="stat-item">
                     <h4 class="stat-number">{{ config.modelName.toUpperCase() }}</h4>
-                    <small class="text-muted">Modèle</small>
+                    <small class="text-muted">Model</small>
                   </div>
                 </BCol>
                 <BCol cols="6" md="3">
                   <div class="stat-item">
                     <h4 class="stat-number">{{ config.confidence * 100 }}%</h4>
-                    <small class="text-muted">Confiance Min.</small>
+                    <small class="text-muted">Min. Confidence</small>
                   </div>
                 </BCol>
                 <BCol cols="6" md="3">
                   <div class="stat-item">
                     <h4 class="stat-number">{{ model.inputShape[1] }}x{{ model.inputShape[2] }}</h4>
-                    <small class="text-muted">Résolution</small>
+                    <small class="text-muted">Resolution</small>
                   </div>
                 </BCol>
                 <BCol cols="6" md="3">
@@ -147,8 +147,8 @@ const initializeModel = async () => {
     store.setModel(net, inputShape);
     store.setError(null);
   } catch (error) {
-    console.error('Erreur lors du chargement du modèle:', error);
-    store.setError(`Impossible de charger le modèle: ${error}`);
+    console.error('Error loading model:', error);
+    store.setError(`Unable to load model: ${error}`);
   }
 };
 

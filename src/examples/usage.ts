@@ -1,67 +1,64 @@
-// Exemple d'utilisation des services dans un composant Vue
+// Example usage of services in a Vue component
 
-// 1. Import des services
-import { ModelService } from '@/services/modelService';
-import { WebcamService } from '@/services/webcamService';
+// 1. Import services
 
-// 2. Instance des services
+// 2. Service instances
 const modelService = ModelService.getInstance();
 const webcamService = WebcamService.getInstance();
 
-// 3. Chargement du modèle
+// 3. Model loading
 const loadModel = async () => {
   try {
     const { net, inputShape } = await modelService.loadModel(
       '/models/yolov8n_web_model/model.json',
-      (progress) => console.log(`Chargement: ${progress * 100}%`)
+      (progress) => console.log(`Loading: ${progress * 100}%`)
     );
     
-    console.log('Modèle chargé:', { net, inputShape });
+    console.log('Model loaded:', { net, inputShape });
   } catch (error) {
-    console.error('Erreur chargement:', error);
+    console.error('Loading error:', error);
   }
 };
 
-// 4. Détection sur image
+// 4. Image detection
 const detectOnImage = async (imageElement, model, canvas) => {
   try {
     await modelService.detect(imageElement, model, canvas);
-    console.log('Détection terminée');
+    console.log('Detection completed');
   } catch (error) {
-    console.error('Erreur détection:', error);
+    console.error('Detection error:', error);
   }
 };
 
-// 5. Gestion webcam
+// 5. Webcam management
 const handleWebcam = async (videoElement, enable) => {
   try {
     if (enable) {
       const stream = await webcamService.openWebcam(videoElement);
-      console.log('Webcam ouverte:', stream);
+      console.log('Webcam opened:', stream);
     } else {
       webcamService.closeWebcam(videoElement);
-      console.log('Webcam fermée');
+      console.log('Webcam closed');
     }
   } catch (error) {
-    console.error('Erreur webcam:', error);
+    console.error('Webcam error:', error);
   }
 };
 
-// 6. Utilisation avec le store Pinia
-import { useAppStore } from '@/stores/app';
+// 6. Usage with Pinia store
 
 const useDetection = () => {
   const store = useAppStore();
   
   const initializeApp = async () => {
-    // Charger le modèle
+    // Load model
     store.setModelLoading(true);
     
     try {
       const { net, inputShape } = await loadModel();
       store.setModel(net, inputShape);
     } catch (error) {
-      store.setError(`Erreur: ${error.message}`);
+      store.setError(`Error: ${error.message}`);
     }
   };
   

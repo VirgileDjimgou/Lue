@@ -10,7 +10,7 @@ export const useDetection = () => {
   const webcamService = WebcamService.getInstance();
   const { handleAsyncError } = useErrorHandler();
 
-  // État local
+  // Local state
   const isInitializing = ref(false);
   const activeStream = ref<MediaStream | null>(null);
 
@@ -19,7 +19,7 @@ export const useDetection = () => {
   const model = computed(() => store.model);
   const config = computed(() => store.config);
 
-  // Initialisation du modèle
+  // Model initialization
   const initializeModel = async () => {
     if (isInitializing.value || isModelReady.value) return;
     
@@ -37,16 +37,16 @@ export const useDetection = () => {
 
       store.setModel(net, inputShape);
       return true;
-    }, 'Impossible de charger le modèle');
+    }, 'Unable to load model');
 
     isInitializing.value = false;
     return result !== null;
   };
 
-  // Détection sur image
+  // Image detection
   const detectOnImage = async (file: File, imageElement: HTMLImageElement, canvas: HTMLCanvasElement) => {
     if (!isModelReady.value) {
-      throw new Error('Le modèle n\'est pas encore chargé');
+      throw new Error('Model is not yet loaded');
     }
 
     return handleAsyncError(async () => {
@@ -67,18 +67,18 @@ export const useDetection = () => {
         
         imageElement.onerror = () => {
           URL.revokeObjectURL(url);
-          reject(new Error('Impossible de charger l\'image'));
+          reject(new Error('Unable to load image'));
         };
         
         imageElement.src = url;
       });
-    }, 'Erreur lors de la détection sur image');
+    }, 'Error during image detection');
   };
 
-  // Détection sur vidéo
+  // Video detection
   const detectOnVideo = async (file: File, videoElement: HTMLVideoElement, canvas: HTMLCanvasElement) => {
     if (!isModelReady.value) {
-      throw new Error('Le modèle n\'est pas encore chargé');
+      throw new Error('Model is not yet loaded');
     }
 
     return handleAsyncError(async () => {
@@ -102,18 +102,18 @@ export const useDetection = () => {
         
         videoElement.onerror = () => {
           URL.revokeObjectURL(url);
-          reject(new Error('Impossible de charger la vidéo'));
+          reject(new Error('Unable to load video'));
         };
         
         videoElement.src = url;
       });
-    }, 'Erreur lors de la détection sur vidéo');
+    }, 'Error during video detection');
   };
 
-  // Gestion webcam
+  // Webcam management
   const toggleWebcam = async (videoElement: HTMLVideoElement, canvas: HTMLCanvasElement, enable: boolean) => {
     if (!isModelReady.value) {
-      throw new Error('Le modèle n\'est pas encore chargé');
+      throw new Error('Model is not yet loaded');
     }
 
     return handleAsyncError(async () => {
@@ -136,7 +136,7 @@ export const useDetection = () => {
         }
         store.resetStream();
       }
-    }, enable ? 'Impossible d\'ouvrir la webcam' : 'Erreur lors de la fermeture de la webcam');
+    }, enable ? 'Unable to open webcam' : 'Error closing webcam');
   };
 
   // Nettoyage

@@ -5,7 +5,7 @@
         <div class="error-header">
           <h4>
             <i class="fas fa-exclamation-triangle text-warning me-2"></i>
-            Une erreur s'est produite
+            An error occurred
           </h4>
           <BButton
             variant="outline-secondary"
@@ -20,21 +20,21 @@
           <p class="mb-3">{{ error }}</p>
           
           <details v-if="errorDetails" class="error-details">
-            <summary>Détails techniques</summary>
+            <summary>Technical details</summary>
             <pre><code>{{ errorDetails }}</code></pre>
           </details>
         </div>
         
         <div class="error-footer">
           <BButton variant="primary" @click="clearError">
-            Fermer
+            Close
           </BButton>
           <BButton 
             variant="outline-secondary" 
             @click="reloadPage"
             class="ms-2"
           >
-            Recharger la page
+            Reload page
           </BButton>
         </div>
       </div>
